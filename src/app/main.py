@@ -31,7 +31,8 @@ def predict(image: UploadFile = File(...)):
     tensor = preprocess_image(image_bytes)
     output = model(tensor)
     _, predicted_idx = torch.max(output.data, 1)
-    predicted_name = label_names[predicted_idx.item()]
+    predicted_idx = predicted_idx.item()
+    predicted_name = label_names[predicted_idx]
     
     return { "label": predicted_idx, "labelName": predicted_name }
 
