@@ -10,7 +10,7 @@ def test_output():
         response = requests.post("http://localhost:8000/predict", files=files)
 
     assert response.status_code == 200
-    print(f"Respose: {response.json()}")
+    print(f"Response: {response.json()}")
 
 def test_latency():
     start_time = time.time()
