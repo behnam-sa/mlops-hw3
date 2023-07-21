@@ -1,0 +1,16 @@
+<div matSnackBarLabel>
+    <h3>Error in prediction</h3>
+    <p>
+        {{ data.message }}
+    </p>
+
+    <div matSnackBarActions>
+        <button
+            mat-button
+            matSnackBarAction
+            (click)="snackBarRef.dismissWithAction()"
+        >
+            Dismiss
+        </button>
+    </div>
+</div>

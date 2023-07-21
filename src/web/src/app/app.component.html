@@ -1,0 +1,44 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title> Predict </mat-card-title>
+        </mat-card-header>
+        <div mat-card-image class="image-container">
+            <label *ngIf="imageSrc" for="fileInput">
+                <img [src]="imageSrc" class="image" />
+            </label>
+
+            <ng-container *ngIf="!imageSrc">
+                <mat-divider></mat-divider>
+                <button
+                    mat-button
+                    color="primary"
+                    (click)="fileInput.click()"
+                    class="select"
+                >
+                    Select image
+                </button>
+                <mat-divider></mat-divider>
+            </ng-container>
+
+            <form>
+                <input
+                    #fileInput
+                    id="fileInput"
+                    type="file"
+                    hidden
+                    (change)="readUrl($event)"
+                />
+            </form>
+        </div>
+        <mat-card-content>
+            <h2 class="result" *ngIf="labelName">Result: {{ labelName }}</h2>
+        </mat-card-content>
+        <mat-card-footer>
+            <mat-progress-bar
+                *ngIf="loading"
+                mode="indeterminate"
+            ></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+</div>
